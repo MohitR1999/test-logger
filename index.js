@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/test', (req, res) => {
-    const ip = req.ip;
+    const ip = req.socket.remoteAddress;
     console.log(`IP: ${ip}`);
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
